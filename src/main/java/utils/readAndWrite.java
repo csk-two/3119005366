@@ -71,19 +71,9 @@ public class readAndWrite {
 
             //2.写数据
             writer.write(content);
+            writer.close();
         } catch (IOException e) {
-            System.out.println("写入文件错误！");
-            e.printStackTrace();
-        } finally {
-            //3.释放资源
-            try {
-                if (writer != null) {
-                    writer.close();
-                }
-            } catch (IOException e) {
-                System.out.println("关闭输入流错误！");
-                e.printStackTrace();
-            }
+            System.err.println("读取异常");
         }
     }
 }
