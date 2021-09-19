@@ -26,8 +26,10 @@ public class selectWord {
 
     static public Set<String> selectWord(List<Term> terms) {
         Set<String> words = new HashSet<>();
+        //收集中文词语,存放于set中
         for (Term term : terms) {
             for (int i = 0; i < term.word.length(); i++) {
+
                 char s = term.word.charAt(i);
                 if (!String.valueOf(s).matches("[\\u4e00-\\u9fa5]")) {
                     continue;
@@ -43,6 +45,7 @@ public class selectWord {
 
     static public List<String> selectWordList(List<Term> terms) {
         List<String> words = new ArrayList<>();
+        //收集中文词语,存放于list中
         for (Term term : terms) {
             for (int i = 0; i < term.word.length(); i++) {
                 char s = term.word.charAt(i);

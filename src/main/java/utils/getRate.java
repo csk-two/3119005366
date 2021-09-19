@@ -31,12 +31,13 @@ import static utils.selectWord.selectWordList;
  */
 public class getRate {
 
+    //将对应路径的文本转换为词频向量
     static public Map<String, Integer> getRate(String path, Set<String> WordSet) {
-        int number = 0;
-        Map<String, Integer> wordRate = new HashMap<>();
+        int number = 0;//统计词频
+        Map<String, Integer> wordRate = new HashMap<>();//存放词频向量
         String TextStr = readText(path);
-        List<Term> word = HanLP.segment(TextStr);
-        List<String> wordList = selectWordList(word);
+        List<Term> word = HanLP.segment(TextStr);//用汉语言包转换字符
+        List<String> wordList = selectWordList(word);//去除其中的字符,将词语存于list中
         for (String s : WordSet) {
             number = 0;
             for (String s1 : wordList) {
@@ -46,6 +47,7 @@ public class getRate {
                 }
             }
         }
+        //统计获取词频向量
         return wordRate;
     }
 

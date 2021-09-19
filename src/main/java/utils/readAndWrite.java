@@ -21,7 +21,7 @@ import java.io.*;
  * @since 1.0.0
  */
 public class readAndWrite {
-
+    //读取文件
     public static String readText(String textPath) {
         Reader reader = null;
         StringBuilder builder = null;
@@ -61,7 +61,7 @@ public class readAndWrite {
         }
         return builder.toString();
     }
-
+    //写出文件
     public static void writeText(String textPath, String content) {
         Writer writer = null;
         try {

@@ -34,13 +34,14 @@ import static utils.readAndWrite.readText;
  * @since 1.0.0
  */
 public class check {
+    //计算出词向量的余弦相似度
     static public Double check(String path1, String path2, String path3) {
 
-        String wordStr = readText(path1);
-        List<Term> segment = HanLP.segment(wordStr);
-        Set<String> set = selectWord(segment);
-        Map<String, Integer> orate = getRate(path1, set);
-        Map<String, Integer> crate = getRate(path2, set);
+        String wordStr = readText(path1);//读取原文的词语为字符串
+        List<Term> segment = HanLP.segment(wordStr);//提取出其中的词语(包含标点符号)
+        Set<String> set = selectWord(segment);//不重复的取出词语(不含标点符号）
+        Map<String, Integer> orate = getRate(path1, set);//以原文为词库,将原文转化为词频向量,存在Map中
+        Map<String, Integer> crate = getRate(path2, set);//将需要查重的存在Map中
 
         //最后的结果
         double result = 0.0;
@@ -61,7 +62,7 @@ public class check {
             equationDown1 += v1 * v1;
             equationDown2 += v2 * v2;
         }
-        result = equationUp / (Math.sqrt(equationDown1) * Math.sqrt(equationDown2));
+        result = equationUp / (Math.sqrt(equationDown1) * Math.sqrt(equationDown2));//计算余弦相似度
         return result;
     }
 }

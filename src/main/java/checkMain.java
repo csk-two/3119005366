@@ -23,11 +23,11 @@ import static utils.readAndWrite.writeText;
 public class checkMain {
 
     public static void main(String[] args) {
-        String path1=args[0];
-        String path2=args[1];
-        String path3=args[2];
-        String check =String.valueOf(check(path1,path2,path3));
-        writeText(path3, check);
+        String path1=args[0];//获取原文路径
+        String path2=args[1];//获取抄袭论文路径
+        String path3=args[2];//获取写出论文路径
+        String check =String.valueOf(check(path1,path2,path3)*100);//计算余弦相似度
+        writeText(path3, check+"%");//将结果写出
     }
 
 }
